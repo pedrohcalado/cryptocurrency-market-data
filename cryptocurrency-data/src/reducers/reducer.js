@@ -1,7 +1,24 @@
-const INITIAL_STATE = '';
+import { IS_REQUESTING, SAVE_CURRENCY_PAIR_INFO } from '../actions';
+
+const INITIAL_STATE = {
+  currencyPairInfo: [],
+  isLoading: false,
+};
 
 function reducer(state = INITIAL_STATE, action) {
-  return 'testing';
+  switch (action.type) {
+    case SAVE_CURRENCY_PAIR_INFO:
+      return ({
+        currencyPairInfo: action.payload,
+        isLoading: false,
+      });
+    case IS_REQUESTING:
+      return ({
+        isLoading: true,
+      })
+    default:
+      return state;
+  }
 }
 
 export default reducer;
