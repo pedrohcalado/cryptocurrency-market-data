@@ -1,34 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Paper, Table, TableContainer, TableBody, TableHead, TablePagination, TableRow, TableCell } from '@material-ui/core';
 
-export default function Table() {
+export default function DataTable() {
   const data = useSelector((state) => state.currencyPairInfoReducer.currencyPairInfo);
   const filter = useSelector((state) => state.filterReducer.selectedFilter);
   const filterOrder = useSelector((state) => state.filterReducer.order);
   data && filterOrder === 'DESC' && data.sort((a, b) => b[1][filter] - a[1][filter]);
   data && filterOrder === 'ASC' && data.sort((a, b) => a[1][filter] - b[1][filter]);
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  }
+
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Currency pair</th>
-          <th>Price</th>
-          <th>Variation</th>
-          <th>Base volume</th>
-          <th>Quoted volume</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data !== undefined && data.map(pair =>
-          <tr key={pair[1].id}>
-            <td>{pair[0]}</td>
-            <td>{pair[1].last}</td>
-            <td>{pair[1].percentChange}</td>
-            <td>{pair[1].baseVolume}</td>
-            <td>{pair[1].quoteVolume}</td>
-          </tr>
-        )}
-      </tbody>
-    </table>
+    <Paper>
+      <TableContainer>
+        <Table className="table table-striped table-bordered table-sm">
+          <TableHead>
+            <TableRow>
+              <TableCell>Currency pair</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell>Variation</TableCell>
+              <TableCell>Base volume</TableCell>
+              <TableCell>Quoted volume</TableCell>
+              </TableRow>
+          </TableHead>
+          <TableBody>
+            {data && data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(pair =>
+              <TableRow key={pair[1].id}>
+                <TableCell>{pair[0]}</TableCell>
+                <TableCell>{pair[1].last}</TableCell>
+                <TableCell>{pair[1].percentChange}</TableCell>
+                <TableCell>{pair[1].baseVolume}</TableCell>
+                <TableCell>{pair[1].quoteVolume}</TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[20, 50, 100]}
+        component="div"
+        count={data.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onChangePage={handleChangePage}
+        onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
 }
