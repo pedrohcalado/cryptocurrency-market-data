@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   isLoading: false,
 };
 
-function reducer(state = INITIAL_STATE, action) {
+export default function currencyPairInfoReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SAVE_CURRENCY_PAIR_INFO:
       return ({
@@ -20,5 +20,3 @@ function reducer(state = INITIAL_STATE, action) {
       return state;
   }
 }
-
-export default reducer;

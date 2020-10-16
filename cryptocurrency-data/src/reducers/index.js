@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
-import reducer from './reducer';
+import currencyPairInfoReducer from './currencyPairInfoReducer';
+import filterReducer from './filterReducer';
 
-export default combineReducers({ reducer });
+export default combineReducers({ currencyPairInfoReducer, filterReducer});
