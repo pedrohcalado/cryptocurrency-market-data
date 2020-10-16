@@ -6,14 +6,14 @@ export default function OrderBook(props) {
   const { currencyPair } = props;
   const [orderBook, setOrderBook] = useState()
   useEffect(() => {
-    fetchOrderBook(currencyPair).then((order => setOrderBook(order)));
+    fetchOrderBook(currencyPair).then((order) => setOrderBook(order));
   }, [currencyPair]);
 
   return (
     <div>
       <h3>Order book</h3>
       <div className="table--ob-container">
-        <table stickyHeader className="table-striped table-bordered table-sm">
+        <table className="table-striped table-bordered table-sm">
           <thead>
             <tr>
               <td>Asks</td>

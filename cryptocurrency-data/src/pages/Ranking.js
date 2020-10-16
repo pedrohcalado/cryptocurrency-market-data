@@ -16,8 +16,8 @@ export default function Ranking() {
     <div>
       <h2>Ranking</h2>
       <Filter />
-      { isLoading && <div>Loading...</div>}
-      { !isLoading && <DataTable />}
+      {isLoading && <div>Loading...</div>}
+      {!isLoading && <DataTable />}
     </div>
   );
 }
