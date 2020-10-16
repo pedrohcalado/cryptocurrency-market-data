@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { currencyPairInfo } from "../actions";
-import Filter from './Filter';
-import DataTable from './Table';
+import Filter from '../components/Filter';
+import DataTable from '../components/Table';
 
 export default function Ranking() {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export default function Ranking() {
     , [dispatch]);
   return (
     <div>
+      <h2>Ranking</h2>
       <Filter />
       { isLoading && <div>Loading...</div>}
       { !isLoading && <DataTable />}
