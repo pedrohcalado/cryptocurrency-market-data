@@ -5,10 +5,9 @@ export const IS_REQUESTING = 'IS_REQUESTING';
 
 export function currencyPairInfo() {
   return (dispatch) => {
-    console.log('entrou')
     dispatch(isRequesting());
     return fetchCurrencyPairInfo()
-      .then((data) => dispatch(saveCurrencyPairInfo(data)),
+      .then((data) => dispatch(saveCurrencyPairInfo(Object.entries(data))),
       (error) => console.log('fetchCurrencyPairInfo', error));
   }
 }
