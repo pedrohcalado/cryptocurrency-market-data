@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <h1>Cryptocurrency</h1>
       <Switch>
-        <Route path="/:id" render={(props) => <CurrencyDetails />} />
-        <Route exact path="/" render={(props) => <Ranking />} />
+        <Route path="/:id" render={(props) => <CurrencyDetails {...props} />} />
+        <Route exact path="/" render={(props) => <Ranking {...props} />} />
       </Switch>
     </div>
   );

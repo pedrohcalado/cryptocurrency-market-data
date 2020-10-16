@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { currencyPairInfo } from "../actions";
 import Filter from '../components/Filter';
-import DataTable from '../components/Table';
+import DataTable from '../components/DataTable';
 
 export default function Ranking() {
   const dispatch = useDispatch();

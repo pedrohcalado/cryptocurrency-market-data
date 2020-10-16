@@ -1,0 +1,8 @@
+.table--ob-container {
+  border: 1px solid green;
+  display: flex;
+  max-height: 400px;
+  justify-content: space-evenly;
+  overflow: scroll;
+  width: 100%;
+}
