@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import fetchTradeHistory from '../services/fetchTradeHistory';
 import './TradeHistory.css';
 
@@ -44,3 +45,7 @@ export default function TradeHistory(props) {
     </div>
   );
 }
+
+TradeHistory.propTypes = {
+  currencyPair: PropTypes.string.isRequired,
+};

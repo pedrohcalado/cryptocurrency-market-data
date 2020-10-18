@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import fetchOrderBook from '../services/fetchOrderBook';
 import './OrderBook.css';
 
@@ -49,3 +50,7 @@ export default function OrderBook(props) {
     </div>
   );
 }
+
+OrderBook.propTypes = {
+  currencyPair: PropTypes.string.isRequired,
+};
