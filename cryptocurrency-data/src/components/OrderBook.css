@@ -1,9 +1,13 @@
 .table--ob-container {
-  border: 1px solid green;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
   display: flex;
   margin: auto;
   max-height: 400px;
   justify-content: space-evenly;
   overflow: scroll;
   width: 75%;
+}
+
+.ob-title {
+  margin-top: 30px;
 }

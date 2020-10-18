@@ -11,7 +11,7 @@ export default function OrderBook(props) {
 
   return (
     <div>
-      <h3>Order book</h3>
+      <h3 className="ob-title">Order book</h3>
       <div className="table--ob-container">
         <table className="table-striped table-bordered table-sm">
           <thead>

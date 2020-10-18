@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import fetchChartData from '../services/fetchChartData';
 import moment from 'moment';
 import { Chart } from "react-google-charts";
+import fetchChartData from '../services/fetchChartData';
+import './CandleStickChart.css';
 
 export default function CandleStickChart(props) {
   const { currencyPair } = props;
   const [chartData, setChartData] = useState([]);
   const [month, setMonth] = useState([1577887988, 1580479988]);
-  // const [month, setMonth] = useState([moment().startOf('month').unix(), moment().valueOf()]);
 
   useEffect(() => {
     fetchChartData(currencyPair, month).then(data => setChartData(data));
@@ -39,7 +39,7 @@ export default function CandleStickChart(props) {
 
   return (
     <div>
-      <h3>Candlestick chart</h3>
+      <h3 className="cs-title">Candlestick chart</h3>
       {chartMonth()}
       <Chart
         width={'100%'}
