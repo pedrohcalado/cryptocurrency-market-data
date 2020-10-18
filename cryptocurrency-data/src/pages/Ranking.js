@@ -13,7 +13,7 @@ export default function Ranking() {
   }
     , [dispatch]);
   return (
-    <div>
+    <div data-test="ranking">
       <h2>Ranking</h2>
       <Filter />
       {isLoading && <div>Loading...</div>}

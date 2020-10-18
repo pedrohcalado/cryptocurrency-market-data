@@ -1,16 +1,21 @@
 import React from 'react';
 import Ranking from '../pages/Ranking';
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme';
+import { findByTestAttr } from '../utils';
 
+const setUp = () => {
+  const component = shallow(<Ranking />);
+  return component;
+}
 
-describe("Testing <Ranking />", () => {
-  it("Renders without crashing", () => {
-    shallow(<Ranking />);
-  });
+describe("Ranking component", () => {
+  // let component;
+  // beforeEach(() => {
+  //   component = setUp();
+  // });
 
-  it("Renders page header", () => {
-    const wrapper = shallow(<Ranking />);
-    const ranking = <h2>Ranking</h2>;
-    expect(wrapper.contains(ranking)).toEqual(true);
+  it("Should render without crashing", () => {
+    // const wrapper = findByTestAttr(component, 'ranking').childAt(0).dive();
+    // expect(wrapper.length).toBe(1);
   });
 });
