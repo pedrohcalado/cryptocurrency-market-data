@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter, setFilterOrder } from '../actions';
+import './Filter.css';
 
 export default function Filter() {
   const dispatch = useDispatch();
   return (
-    <div>
+    <div className="f-main-container">
+      <p>Select the filter order and column:</p>
       <div>
       <label htmlFor="ASC">
         Ascendent
@@ -15,9 +17,10 @@ export default function Filter() {
           id="ASC"
           name="order"
           onChange={(e) => dispatch(setFilterOrder(e.target.value))}
+          className="f-radio-input"
         />
       </label>
-      <label htmlFor="DESC">
+      <label htmlFor="DESC" className="f-radio-label">
         Descendent
         <input
           type="radio"
@@ -25,6 +28,7 @@ export default function Filter() {
           id="DESC"
           name="order"
           onChange={(e) => dispatch(setFilterOrder(e.target.value))}
+          className="f-radio-input"
         />
       </label>
       </div>
