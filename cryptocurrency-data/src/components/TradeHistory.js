@@ -10,20 +10,20 @@ export default function TradeHistory(props) {
     fetchTradeHistory(currencyPair).then((trades) => setTradeHistory(trades))
   }, [currencyPair])
   return (
-    <div>
-      <h3>Trade history</h3>
+    <div data-test="tradeHistoryComponent">
+      <h3 data-test="tradeHistoryTitle">Trade history</h3>
       <div className="table--th-container">
         <table className="table-striped table-bordered table-sm">
           <thead>
             <tr>
-              <td>Global trade ID</td>
-              <td>Trade ID</td>
-              <td>Date</td>
-              <td>Type</td>
-              <td>Rate</td>
-              <td>Amount</td>
-              <td>Total</td>
-              <td>Order number</td>
+              <td data-test="globalTradeID">Global trade ID</td>
+              <td data-test="tradeID">Trade ID</td>
+              <td data-test="date">Date</td>
+              <td data-test="type">Type</td>
+              <td data-test="rate">Rate</td>
+              <td data-test="amount">Amount</td>
+              <td data-test="total">Total</td>
+              <td data-test="orderNumber">Order number</td>
             </tr>
           </thead>
           <tbody>
