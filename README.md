@@ -15,6 +15,7 @@ This project aims to show real time cryptocurrency market data for differente cu
 ### Installing
 
 * In order to run it locally, you just need to `npm install` to install the dependencies and then `npm start` to start it.
+* Deploy: https://jolly-hypatia-d43c76.netlify.app/
 
 ## Help
 
