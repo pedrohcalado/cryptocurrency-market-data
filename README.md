@@ -1,4 +1,4 @@
-# Project Title
+# Cryptocurrency market data
 
 Real time cryptocurrency market data.
 
