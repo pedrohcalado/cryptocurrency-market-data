@@ -10,8 +10,8 @@ export default function TradeHistory(props) {
   }, [currencyPair])
   return (
     <div>
-      <h3>Trade history</h3>
-      <div className="table--th-container">
+      <h3 className="th-title">Trade history</h3>
+      <div className="th-table-container">
         <table className="table-striped table-bordered table-sm">
           <thead>
             <tr>
