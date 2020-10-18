@@ -1,16 +1,27 @@
 import React from 'react';
 import App from '../App';
-import {shallow} from 'enzyme'
+import { shallow } from 'enzyme';
+import { findByTestAttr } from '../utils';
 
+const setUp = () => {
+  const component = shallow(<App />);
+  return component;
+}
 
-describe("Testing <App />", () => {
-  it("Renders without crashing", () => {
-    shallow(<App />);
+describe("App component", () => {
+
+  let component;
+  beforeEach(() => {
+    component = setUp();
   });
 
-  it("Renders page header", () => {
-    const wrapper = shallow(<App />);
+  it("Should render without crashing", () => {
+    const wrapper = findByTestAttr(component, 'app');
+    expect(wrapper.length).toBe(1);
+  });
+
+  it("Should render page header", () => {
     const cripto = <h1>Cryptocurrency</h1>;
-    expect(wrapper.contains(cripto)).toEqual(true);
+    expect(component.contains(cripto)).toEqual(true);
   });
 });
