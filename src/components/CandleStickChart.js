@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Chart } from "react-google-charts";
 import fetchChartData from '../services/fetchChartData';
 import './CandleStickChart.css';
+import PropTypes from 'prop-types';
 
 export default function CandleStickChart(props) {
   const { currencyPair } = props;
@@ -59,3 +60,7 @@ export default function CandleStickChart(props) {
     </div>
   );
 }
+
+CandleStickChart.propTypes = {
+  currencyPair: PropTypes.string.isRequired,
+};

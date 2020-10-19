@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-test="app">
       <h1>Cryptocurrency</h1>
         <Switch>
           <Route path="/:id" render={(props) => <CurrencyDetails {...props} />} />

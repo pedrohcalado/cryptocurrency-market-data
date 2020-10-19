@@ -1,57 +1,51 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import fetchTradeHistory from '../services/fetchTradeHistory';
 import './TradeHistory.css';
 
 export default function TradeHistory(props) {
   const { currencyPair } = props;
   const [tradeHistory, setTradeHistory] = useState();
-  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true);
-    fetchTradeHistory(currencyPair).then((trades) => {
-      setTradeHistory(trades);
-      setIsLoading(false);
-    })
-  }, [currencyPair]);
-
+    fetchTradeHistory(currencyPair).then((trades) => setTradeHistory(trades))
+  }, [currencyPair])
   return (
-    <div>
-      <h3 className="th-title">Trade history</h3>
-      <p>Last 200 trades</p>
-      {isLoading && <p>Loading...</p>}
-      {!isLoading &&
-        <div className="th-table-container">
-          <table className="table-striped table-bordered table-sm">
-            <thead>
-              <tr>
-                <td>Global trade ID</td>
-                <td>Trade ID</td>
-                <td>Date</td>
-                <td>Type</td>
-                <td>Rate</td>
-                <td>Amount</td>
-                <td>Total</td>
-                <td>Order number</td>
+    <div data-test="tradeHistoryComponent">
+      <h3 data-test="tradeHistoryTitle">Trade history</h3>
+      <div className="table--th-container">
+        <table className="table-striped table-bordered table-sm">
+          <thead>
+            <tr>
+              <td data-test="globalTradeID">Global trade ID</td>
+              <td data-test="tradeID">Trade ID</td>
+              <td data-test="date">Date</td>
+              <td data-test="type">Type</td>
+              <td data-test="rate">Rate</td>
+              <td data-test="amount">Amount</td>
+              <td data-test="total">Total</td>
+              <td data-test="orderNumber">Order number</td>
+            </tr>
+          </thead>
+          <tbody>
+            {tradeHistory && tradeHistory.map(trade =>
+              <tr key={trade.tradeID}>
+                <td>{trade.globalTradeID}</td>
+                <td>{trade.tradeID}</td>
+                <td>{trade.date}</td>
+                <td>{trade.type}</td>
+                <td>{trade.rate}</td>
+                <td>{trade.amount}</td>
+                <td>{trade.total}</td>
+                <td>{trade.orderNumber}</td>
               </tr>
-            </thead>
-            <tbody>
-              {tradeHistory && tradeHistory.map(trade =>
-                <tr key={trade.tradeID}>
-                  <td>{trade.globalTradeID}</td>
-                  <td>{trade.tradeID}</td>
-                  <td>{trade.date}</td>
-                  <td>{trade.type}</td>
-                  <td>{trade.rate}</td>
-                  <td>{trade.amount}</td>
-                  <td>{trade.total}</td>
-                  <td>{trade.orderNumber}</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      }
-    {(tradeHistory && tradeHistory.length === 0) && <p>No trade found</p>}
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
+
+TradeHistory.propTypes = {
+  currencyPair: PropTypes.string.isRequired,
+};

@@ -1,6 +1,6 @@
 import { SET_FILTER, SET_FILTER_ORDER } from '../actions';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   selectedFilter: 'last',
   order: 'DESC',
 };
