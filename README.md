@@ -10,7 +10,7 @@ This project aims to show real time cryptocurrency market data for differente cu
 
 ### Dependencies
 
-* Main libraries used: React, Redux, Material-ui and Bootstrap.
+* Main technologies: React, Redux, React-google-charts and Material-ui.
 
 ### Installing
 
