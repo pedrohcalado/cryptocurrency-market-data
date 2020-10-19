@@ -11,8 +11,8 @@ export default function TradeHistory(props) {
   }, [currencyPair])
   return (
     <div data-test="tradeHistoryComponent">
-      <h3 data-test="tradeHistoryTitle">Trade history</h3>
-      <div className="table--th-container">
+      <h3 className="th-title" data-test="tradeHistoryTitle">Trade history</h3>
+      <div className="th-table-container">
         <table className="table-striped table-bordered table-sm">
           <thead>
             <tr>

@@ -5,6 +5,7 @@
   max-height: 400px;
   justify-content: center;
   overflow: scroll;
+  width: 75%;
 }
 
 .th-title {

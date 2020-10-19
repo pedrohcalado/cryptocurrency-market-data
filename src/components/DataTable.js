@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Paper, Table, TableContainer, TableBody, TableHead, TablePagination, TableRow, TableCell } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import './DataTable.css';
 
 export default function DataTable() {
   const data = useSelector((state) => state.currencyPairInfoReducer.currencyPairInfo);
@@ -24,7 +25,7 @@ export default function DataTable() {
   };
 
   return (
-    <Paper>
+    <Paper className="dt-table">
       <TableContainer>
         <Table className="table table-striped table-bordered table-sm">
           <TableHead>
